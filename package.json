@@ -1,0 +1,40 @@
+{
+  "name": "flux-sdk-helpers",
+  "version": "0.1.0",
+  "description": "Helper functions for the Flux Browser SDK",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "npm run build:common & npm run build:umd & npm run build:umd:min",
+    "build:common": "babel src -d lib -s",
+    "build:umd": "webpack src/index.js dist/flux-sdk-helpers.js -d",
+    "build:umd:min": "webpack src/index.js dist/flux-sdk-helpers.min.js -p",
+    "check": "npm run lint && npm test",
+    "clean": "rimraf dist lib",
+    "lint": "eslint src spec",
+    "prepublish": "npm run clean && npm run build",
+    "test": "mocha --compilers js:babel-register --recursive",
+    "test:watch": "npm test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/fluxio/flux-sdk-helpers"
+  },
+  "author": "Flux Factory, Inc. (https://flux.io)",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-core": "^6.11.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-register": "^6.9.0",
+    "eslint": "^3.1.1",
+    "eslint-config-airbnb-base": "^4.0.2",
+    "eslint-plugin-import": "^1.11.1",
+    "expect": "^1.20.2",
+    "flux-sdk-browser": "^0.4.0",
+    "jsdom": "^9.4.1",
+    "mocha": "^2.5.3",
+    "rimraf": "^2.5.4",
+    "webpack": "^1.13.1"
+  }
+}
