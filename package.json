@@ -1,8 +1,13 @@
 {
   "name": "flux-sdk-helpers",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Helper functions for the Flux Browser SDK",
   "main": "lib/index.js",
+  "files": [
+    "dist",
+    "lib",
+    "src"
+  ],
   "scripts": {
     "build": "npm run build:common & npm run build:umd & npm run build:umd:min",
     "build:common": "babel src -d lib -s",
