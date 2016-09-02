@@ -21,8 +21,8 @@ under `__FLUX__`. (This may change in future version)
 In your HTML:
 
 ```html
-<script src="https://npmcdn.com/flux-sdk-browser@<sdk version>/dist/flux-sdk-min.js"></script>
-<script src="https://npmcdn.com/flux-sdk-helpers@0.1/dist/flux-sdk-helpers.js"></script>
+<script src="https://unpkg.com/flux-sdk-browser@<sdk version>/dist/flux-sdk-min.js"></script>
+<script src="https://unpkg.com/flux-sdk-helpers@0.1/dist/flux-sdk-helpers.js"></script>
 ```
 
 In your JavaScript:
