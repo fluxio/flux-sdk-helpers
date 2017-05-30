@@ -76,17 +76,7 @@ class FluxHelpers {
 
   isLoggedIn() {
     const credentials = retrieve(CREDENTIALS_KEY);
-
     return this._sdk.User.isLoggedIn(credentials)
-      .then(loggedIn => {
-        if (!loggedIn) {
-          // We clear the credentials key in case invalid (e.g., expired) credentials are
-          // still in there.
-          clear(CREDENTIALS_KEY);
-        }
-
-        return loggedIn;
-      });
   }
 
   logout() {
