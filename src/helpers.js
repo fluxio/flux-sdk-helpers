@@ -38,7 +38,7 @@ class FluxHelpers {
     window.location[redirect](url);
   }
 
-  storeFluxUser(redirectUrl, replace) {
+  storeFluxUser(redirectUrl) {
     let promise = null;
 
     if (!isLoggingIn()) {
@@ -47,9 +47,6 @@ class FluxHelpers {
       const state = retrieve(STATE_KEY);
       const nonce = retrieve(NONCE_KEY);
 
-      // As above, we need to assign and call the redirect function specially or the browser
-      // may throw an error due to special window.location behaviour.
-      const redirect = replace ? 'replace' : 'assign';
       const url = redirectUrl || window.location.href.replace(window.location.hash, '');
 
       if (!state) {
@@ -67,7 +64,7 @@ class FluxHelpers {
           store(CREDENTIALS_KEY, credentials);
         })
         .then(() => {
-          window.location[redirect](url);
+          window.history.replaceState({}, document.title, url)
         });
     }
 
@@ -111,7 +108,7 @@ class FluxHelpers {
       // interrupting the current browser execution.
       this.redirectToFluxLogin(replace);
     } else {
-      return this.storeFluxUser(redirectUrl, replace);
+      return this.storeFluxUser(redirectUrl);
     }
   }
   /* eslint-enable consistent-return */
