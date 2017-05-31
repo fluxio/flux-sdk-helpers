@@ -108,7 +108,7 @@ class FluxHelpers {
       // interrupting the current browser execution.
       this.redirectToFluxLogin(replace);
     } else {
-      return this.storeFluxUser(redirectUrl, replace);
+      return this.storeFluxUser(redirectUrl);
     }
   }
   /* eslint-enable consistent-return */
